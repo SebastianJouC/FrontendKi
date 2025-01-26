@@ -1,59 +1,28 @@
 # Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Este proyecto fue generado usando Angular version 19.0.6.
 
+## Dependencia Necesaria
+
+- Angular Material
+```bash
+ng add @angular/material
+```
 ## Development server
 
-To start a local development server, run:
+Para iniciar el proyecto de manera local, coloca:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Explicacion del proyecto
+El frontend de este proyecto tiene el proposito de crear un banner para una pagina, el cual tenga un modal de cookies, una pagina para listar politicas de cookies, y un gestor de ambas que utilize las operaciones CRUD del backend, tambien considerar que es responsivo para adaptarse a pantallas de distintos tamaños y que los datos quedaran guardados en el local storage para que cuando el usuario acepte las cookies, no deba volver a realizar esta accion.
+## Consideraciones
+Este proyecto corre actualmente en local, por ende la clase environment se debe configurar en base al url del backend.
+## Componentes
+El proyecto se compone de los siguientes componentes:
+- Confirmation-Dialog: Su unico objetivo es ser una ventana emergenta para confirmar la eliminacion de alguna politica.
+- Confirmation-Dialog-Cookies: Su objetivo es el mismo que el componente anterior pero para las cookies.
+- Cookies-Banner: Componente q
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
