@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Estilo general del diálogo */
+.dialog {
+  width: 390px; /* Ancho fijo según la especificación */
+  height: 844px; /* Alto fijo según la especificación */
+  position: relative;
+  margin: 0 auto; /* Centra el diálogo horizontalmente */
+  box-sizing: border-box;
+}
+
+/* Encabezado del diálogo */
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 101.48px;
+  padding: 24px 10px 0 24px;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+.dialog-image {
+  width: 160px;
+  height: 53.48px;
+  flex-shrink: 0;
+}
+
+.close-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px 0px 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f3f8;
+  margin-left: auto;
+  box-sizing: content-box;
+}
+
+/* Contenido del diálogo */
+.dialog-content {
+  overflow-y: auto;
+  height: calc(100% - 101.48px);
+  padding-right: 12px;
+  scrollbar-width: thin;
+  box-sizing: border-box;
+}
+
+.dialog-description {
+  margin-bottom: 16px;
+  color: #626387;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.cookie-item {
+  margin-bottom: 16px;
+}
+
+.cookie-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-header h3 {
+  font-size: 24px; /* Título de la cookie */
+  color: #01549B; /* Color de los títulos de las cookies */
+  font-weight: bold;
+  margin: 0;
+}
+
+.cookie-description {
+  color: #626387;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 8px;
+}
+
+/* Botón de guardar configuración */
+.save-button {
+  width: 342px;
+  height: 58px;
+  padding: 15px 24px;
+  gap: 0;
+  border-radius: 8px 0 0 0;
+  background-color: #0096db;
+  color: white;
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.13px;
+  text-align: center;
+}
+
+/* Scroll personalizado */
+.dialog-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.dialog-content::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 62px;
+}
+
+.dialog-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Estilos para Angular Material */
+::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__track::after {
+  background-color: #99CCE5 !important;
+  color: #99CCE5 !important;
+  opacity: 1 !important;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+  .dialog {
+    width: 100%; /* Permite que el diálogo ocupe todo el ancho disponible */
+    height: auto; /* Ajusta la altura automáticamente */
+    max-height: 844px; /* Asegura que no exceda la altura especificada */
+  }
+
+  .dialog-header {
+    padding: 20px 8px 0 20px; /* Ajusta los paddings para pantallas más pequeñas */
+  }
+
+  .dialog-content {
+    padding-right: 8px;
+  }
+
+  .save-button {
+    width: calc(100% - 40px); /* Ajusta el ancho del botón al contenedor */
+    margin: 0 auto; /* Centra el botón */
+  }
+}
+
+@media (max-width: 480px) {
+  .dialog {
+    width: 100%; /* Ocupa todo el ancho disponible en móviles */
+    height: auto;
+    max-height: 844px;
+  }
+
+  .dialog-header {
+    padding: 16px 8px 0 16px; /* Ajuste adicional para móviles */
+  }
+
+  .save-button {
+    font-size: 20px; /* Reduce el tamaño de fuente del botón */
+    width: calc(100% - 32px);
+  }
+}
+
+/* Ajusta los estilos para el nombre de las cookies y el título */
+.cookie-header h3,
+.dialog-content h1 {
+  color: #01549B; /* Color del texto */
+  font-size: 24px; /* Tamaño de fuente */
+  font-weight: bold; /* Mantiene el estilo de título */
+  margin: 0;
+}
+
+/* Estilo para los textos generales */
+.dialog-description,
+.cookie-description {
+  color: #626387; /* Color del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  line-height: 20px; /* Espaciado entre líneas */
+}
+
+/* Opcional: Asegura que el título del diálogo sea consistente */
+.dialog-header h2 {
+  font-size: 24px;
+  color: #01549B;
+  margin: 0;
+}

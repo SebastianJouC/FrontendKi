@@ -1,0 +1,62 @@
+/* Contenedor principal */
+mat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    padding: 24px;
+    max-width: 600px; /* Ancho máximo del formulario */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Suaviza el borde */
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Fondo claro */
+  }
+  
+  /* Centrar los campos del formulario */
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px; /* Espaciado entre elementos */
+  }
+  
+  /* Título */
+  h2 {
+    font-size: 24px;
+    text-align: center; /* Centrar el título */
+    margin-bottom: 16px;
+  }
+  
+  /* Estilo de los campos de formulario */
+  .mat-form-field {
+    width: 100%; /* Asegura que los campos ocupen el mismo ancho */
+  }
+  
+  /* Botones */
+  .form-actions {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 16px; /* Espacio entre botones */
+  }
+  
+  button[mat-flat-button], button[mat-raised-button] {
+    min-width: 120px; /* Ancho mínimo para consistencia */
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  /* Para pantallas pequeñas */
+  @media (max-width: 768px) {
+    mat-card {
+      padding: 16px; /* Reducir el relleno */
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    button[mat-flat-button], button[mat-raised-button] {
+      font-size: 12px; /* Tamaño de texto más pequeño */
+    }
+  }
+  

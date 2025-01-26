@@ -1,0 +1,59 @@
+/* Título de la lista */
+h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  /* Botón "Añadir Cookie" */
+  button[mat-raised-button] {
+    margin-bottom: 16px;
+  }
+  
+  /* Tabla */
+  .mat-elevation-z8 {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 16px;
+  }
+  
+  /* En pantallas pequeñas, la tabla se adapta para un mejor deslizamiento */
+  @media (max-width: 768px) {
+    .mat-elevation-z8 {
+      overflow-x: scroll; /* Permite hacer scroll horizontal */
+    }
+  
+    table mat-header-cell, table mat-cell {
+      padding: 8px;
+      font-size: 14px; /* Ajusta el tamaño de fuente */
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    button[mat-raised-button] {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+  }
+  
+  /* En dispositivos muy pequeños */
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 18px;
+    }
+  
+    button[mat-raised-button] {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+  
+    table mat-header-cell, table mat-cell {
+      font-size: 12px; /* Reducción del tamaño de fuente */
+    }
+  
+    mat-paginator {
+      font-size: 12px;
+    }
+  }
+  

@@ -1,0 +1,30 @@
+<mat-card>
+    <h2>{{ isEditMode ? 'Edit Politic' : 'New Politic' }}</h2>
+    <form [formGroup] = "politicForm" (ngSubmit)="onSubmit()">
+  
+      <mat-form-field class="full-width">
+        <mat-label>Politic Title</mat-label>
+        <input matInput formControlName="title" required />
+        <mat-error *ngIf="politicForm.get('title')?.invalid">
+          Title is required (max 25 characters).
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" required />
+        <mat-error *ngIf="politicForm.get('description')?.invalid">
+            Description is required (max 500 characters).
+        </mat-error>
+      </mat-form-field>
+      
+      <div class="form-actions">
+        <button  mat-flat-button color="warn" type="submit" [disabled]="politicForm.invalid">
+          {{ isEditMode ? 'Update Changes' : 'Add Politic' }}
+        </button>
+        <button mat-raised-button color="warn" (click)="router.navigate(['/cookies/politics-edit'])" type="button">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </mat-card>

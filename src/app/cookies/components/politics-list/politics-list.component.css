@@ -1,0 +1,65 @@
+/* Estilos generales para la tabla */
+mat-table {
+    width: 100%; /* La tabla ocupa todo el ancho disponible */
+    overflow-x: auto; /* Permite el desplazamiento horizontal en pantallas pequeñas */
+  }
+  
+  table {
+    width: 100%; /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  button {
+    margin-right: 8px;
+  }
+  
+  /* Hacer la tabla responsiva */
+  @media (max-width: 768px) {
+    mat-header-cell, mat-cell {
+      font-size: 14px; /* Reducir el tamaño de la fuente para pantallas más pequeñas */
+    }
+  
+    mat-header-cell {
+      font-weight: bold;
+    }
+  
+    /* Ajuste para el título y botones */
+    h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+  
+    button {
+      width: 100%; /* Los botones ocupan el 100% del ancho disponible */
+      margin: 8px 0; /* Espaciado entre los botones */
+    }
+  
+    .mat-paginator {
+      font-size: 14px; /* Reducir el tamaño de la fuente del paginador */
+    }
+  }
+  
+  /* Estilo para pantallas muy pequeñas (móviles) */
+  @media (max-width: 480px) {
+    mat-header-cell, mat-cell {
+      font-size: 12px; /* Reducir aún más el tamaño de la fuente */
+    }
+  
+    .mat-elevation-z8 {
+      padding: 0; /* Ajustar padding en la tabla para pantallas más pequeñas */
+    }
+  
+    table {
+      font-size: 12px; /* Reducir el tamaño de la fuente de la tabla */
+    }
+  
+    button {
+      font-size: 16px; /* Asegura que los botones no se vean muy pequeños */
+    }
+  }
+  

@@ -1,0 +1,192 @@
+*{box-sizing: border-box}
+.cookie-banner {
+  /* Dimensiones y posición */
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
+  /* Espaciado interno y diseño */
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  /* Visibilidad */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  /* Clase para mostrar el banner */
+  &.visible {
+    opacity: 1;
+  }
+
+  .cookie-content {
+    width: Fill (870px)px;
+    height: Hug (68px)px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    gap: 16px;
+
+    p {
+      font-family: Roboto, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 22.4px;
+      text-align: left;
+      color: #626387;
+      margin: 0;
+
+      .link {
+        color: #007bff;
+        cursor: pointer;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22.4px;
+        text-align: center;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+        &:hover {
+          color: #0056b3;
+        }
+      }
+    }
+  }
+
+  .cookie-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .cookie-actions a.cookie-link {
+    display: inline-block;
+    color: #2562A5;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    padding: 0 24px;
+    border-radius: 8px 0px 0px 0px;
+    transition: color 0.3s ease;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.13px;
+    text-align: left;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+  }
+
+  .cookie-actions a.cookie-link:hover {
+    color: #0056b3;
+  }
+
+  /* Botón "Rechazar no necesarias" */
+  .cookie-actions button[color="warn"] {
+    background-color: #FFFFFF;
+    color: #2562A5;
+    border: 2px solid #2562A5;
+    width: 321px;
+    height: 58px;
+    padding: 15px 24px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.13px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+  }
+
+  .cookie-actions button[color="warn"]:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+
+  /* Botón "Aceptar todas" */
+  .cookie-actions button[color="primary"] {
+    background-color: #0096DB;
+    color: #FFFFFF;
+    border: 2px solid #0096DB;
+    width: 320px;
+    height: 58px;
+    padding: 15px 24px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.13px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+  }
+
+  .cookie-actions button[color="primary"]:hover {
+    background-color: #0056b3;
+  }
+  
+
+  /* Responsividad */
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    .cookie-content {
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .cookie-actions {
+      flex-direction: row;
+      gap: 12px;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px;
+    gap: 12px;
+
+    .cookie-content {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .cookie-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cookie-actions button,
+    .cookie-actions a.cookie-link {
+      width: 100%;
+      font-size: 14px;
+      padding: 12px;
+    }
+  }
+
+  
+}

@@ -1,0 +1,30 @@
+<div class="dialog">
+  <h2 mat-dialog-title class="dialog-header">
+    <img src="assets/EsvalLogo.png" alt="Logo de Esval" class="dialog-image" />
+    <button mat-icon-button class="close-button" (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </h2>
+
+  <div mat-dialog-content class="dialog-content">
+    <h1>Configuración de Cookies</h1>
+    <p class="dialog-description">
+      Las cookies mejoran tu experiencia, analizan la navegación, personalizan contenido y aseguran la funcionalidad. Puedes gestionar tus preferencias y obtener más detalles sobre cada tipo de cookie para ajustar la configuración. Más información en nuestra
+      <a href="javascript:void(0)" (click)="goToCookiesPolitics()">Políticas de Cookies</a>
+    </p>
+
+    <div *ngFor="let cookie of cookies()" class="cookie-item">
+      <div class="cookie-header">
+        <h3>{{ cookie.name }} <span *ngIf="cookie.required">(siempre activas)</span></h3>
+        <mat-slide-toggle [(ngModel)]="cookie.accepted" [disabled]="cookie.required">
+        </mat-slide-toggle>
+      </div>
+      <p class="cookie-description">{{ cookie.description }}</p>
+      <hr />
+    </div>
+  </div>
+
+  <mat-dialog-actions align="end">
+    <button mat-button class="save-button" (click)="onSave()">Guardar configuración</button>
+  </mat-dialog-actions>
+</div>

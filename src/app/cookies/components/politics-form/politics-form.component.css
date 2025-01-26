@@ -1,0 +1,74 @@
+/* Formulario dentro de mat-card */
+mat-card {
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  /* Estilo para los campos de formulario */
+  mat-form-field.full-width {
+    width: 100%; /* Los campos ocupan el 100% del ancho disponible */
+    margin-bottom: 16px;
+  }
+  
+  /* Estilo para los botones */
+  .form-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+  }
+  
+  button {
+    width: 48%; /* Los botones ocupan el 48% del ancho */
+  }
+  
+  button[disabled] {
+    opacity: 0.5;
+  }
+  
+  /* Ajustes responsivos para pantallas pequeñas */
+  @media (max-width: 768px) {
+    mat-card {
+      padding: 16px;
+      width: 90%; /* Asegura que el card ocupe el 90% del ancho */
+      margin: 20px auto;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    /* Los botones deben ajustarse para pantallas pequeñas */
+    .form-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    button {
+      width: 100%; /* Los botones ocupan el 100% del ancho en móviles */
+      margin-bottom: 8px; /* Espaciado entre los botones */
+    }
+  }
+  
+  /* Ajustes para pantallas muy pequeñas (móviles) */
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 18px;
+    }
+  
+    mat-form-field.full-width {
+      margin-bottom: 12px; /* Menos espacio entre los campos en móviles */
+    }
+  
+    button {
+      font-size: 14px; /* Reducir el tamaño de fuente de los botones */
+    }
+  }
+  

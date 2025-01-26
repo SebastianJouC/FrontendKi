@@ -1,0 +1,48 @@
+<mat-card>
+  <h2>{{ isEditMode ? 'Edit Cookie' : 'New Cookie' }}</h2>
+  <form [formGroup]="cookieForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="full-width">
+      <mat-label>Cookie Name</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="cookieForm.get('name')?.invalid">
+        Name is required (max 100 characters).
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" required />
+      <mat-error *ngIf="cookieForm.get('description')?.invalid">
+        Description is required (max 1000 characters).
+      </mat-error>
+    </mat-form-field>
+
+    <div class="checkbox-container">
+      <div class="checkbox-item">
+        <mat-label>Accepted?</mat-label>
+        <mat-checkbox formControlName="accepted"></mat-checkbox>
+        <mat-error *ngIf="cookieForm.get('accepted')?.invalid">
+          Accepted is obligatory.
+        </mat-error>
+      </div>
+
+      <div class="checkbox-item">
+        <mat-label>Required?</mat-label>
+        <mat-checkbox formControlName="required"></mat-checkbox>
+        <mat-error *ngIf="cookieForm.get('required')?.invalid">
+          Required is obligatory.
+        </mat-error>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button mat-flat-button color="warn" type="submit" [disabled]="cookieForm.invalid">
+        {{ isEditMode ? 'Update Changes' : 'Add Cookie' }}
+      </button>
+      <button mat-raised-button color="warn" (click)="router.navigate(['/cookies/cookies-edit'])" type="button">
+        Cancel
+      </button>
+    </div>
+  </form>
+</mat-card>
