@@ -2,16 +2,14 @@
   box-sizing: border-box;
 }
 
-/* Estilo general del diálogo */
 .dialog {
-  width: 390px; /* Ancho fijo según la especificación */
-  height: 844px; /* Alto fijo según la especificación */
+  width: 390px;
+  height: 844px;
   position: relative;
-  margin: 0 auto; /* Centra el diálogo horizontalmente */
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
-/* Encabezado del diálogo */
 .dialog-header {
   display: flex;
   align-items: center;
@@ -44,7 +42,6 @@
   box-sizing: content-box;
 }
 
-/* Contenido del diálogo */
 .dialog-content {
   overflow-y: auto;
   height: calc(100% - 101.48px);
@@ -71,8 +68,8 @@
 }
 
 .cookie-header h3 {
-  font-size: 24px; /* Título de la cookie */
-  color: #01549B; /* Color de los títulos de las cookies */
+  font-size: 24px;
+  color: #01549B;
   font-weight: bold;
   margin: 0;
 }
@@ -84,7 +81,6 @@
   margin-top: 8px;
 }
 
-/* Botón de guardar configuración */
 .save-button {
   width: 342px;
   height: 58px;
@@ -100,7 +96,6 @@
   text-align: center;
 }
 
-/* Scroll personalizado */
 .dialog-content::-webkit-scrollbar {
   width: 12px;
 }
@@ -114,23 +109,21 @@
   background-color: transparent;
 }
 
-/* Estilos para Angular Material */
 ::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__track::after {
   background-color: #99CCE5 !important;
   color: #99CCE5 !important;
   opacity: 1 !important;
 }
 
-/* Diseño responsivo */
 @media (max-width: 768px) {
   .dialog {
-    width: 100%; /* Permite que el diálogo ocupe todo el ancho disponible */
-    height: auto; /* Ajusta la altura automáticamente */
-    max-height: 844px; /* Asegura que no exceda la altura especificada */
+    width: 100%;
+    height: auto;
+    max-height: 844px; 
   }
 
   .dialog-header {
-    padding: 20px 8px 0 20px; /* Ajusta los paddings para pantallas más pequeñas */
+    padding: 20px 8px 0 20px;
   }
 
   .dialog-content {
@@ -138,46 +131,43 @@
   }
 
   .save-button {
-    width: calc(100% - 40px); /* Ajusta el ancho del botón al contenedor */
-    margin: 0 auto; /* Centra el botón */
+    width: calc(100% - 40px);
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 480px) {
   .dialog {
-    width: 100%; /* Ocupa todo el ancho disponible en móviles */
+    width: 100%;
     height: auto;
     max-height: 844px;
   }
 
   .dialog-header {
-    padding: 16px 8px 0 16px; /* Ajuste adicional para móviles */
+    padding: 16px 8px 0 16px; 
   }
 
   .save-button {
-    font-size: 20px; /* Reduce el tamaño de fuente del botón */
+    font-size: 20px;
     width: calc(100% - 32px);
   }
 }
 
-/* Ajusta los estilos para el nombre de las cookies y el título */
 .cookie-header h3,
 .dialog-content h1 {
-  color: #01549B; /* Color del texto */
-  font-size: 24px; /* Tamaño de fuente */
-  font-weight: bold; /* Mantiene el estilo de título */
+  color: #01549B;
+  font-size: 24px;
+  font-weight: bold;
   margin: 0;
 }
 
-/* Estilo para los textos generales */
 .dialog-description,
 .cookie-description {
-  color: #626387; /* Color del texto */
-  font-size: 16px; /* Tamaño de fuente */
-  line-height: 20px; /* Espaciado entre líneas */
+  color: #626387;
+  font-size: 16px;
+  line-height: 20px;
 }
 
-/* Opcional: Asegura que el título del diálogo sea consistente */
 .dialog-header h2 {
   font-size: 24px;
   color: #01549B;

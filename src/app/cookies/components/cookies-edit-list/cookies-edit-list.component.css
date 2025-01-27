@@ -1,30 +1,43 @@
-/* Título de la lista */
+* {
+  box-sizing: border-box;
+}
+
 h2 {
     font-size: 24px;
     margin-bottom: 16px;
+    color: #01549B;
+  }
+
+  table mat-cell {
+    color: #626387; 
+  }
+
+  table mat-header-cell {
+    color: #01549B; 
+    font-weight: bold;
   }
   
-  /* Botón "Añadir Cookie" */
+  
   button[mat-raised-button] {
     margin-bottom: 16px;
   }
   
-  /* Tabla */
+  
   .mat-elevation-z8 {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     margin-bottom: 16px;
   }
   
-  /* En pantallas pequeñas, la tabla se adapta para un mejor deslizamiento */
+  
   @media (max-width: 768px) {
     .mat-elevation-z8 {
-      overflow-x: scroll; /* Permite hacer scroll horizontal */
+      overflow-x: scroll; 
     }
   
     table mat-header-cell, table mat-cell {
       padding: 8px;
-      font-size: 14px; /* Ajusta el tamaño de fuente */
+      font-size: 14px; 
     }
   
     h2 {
@@ -37,7 +50,7 @@ h2 {
     }
   }
   
-  /* En dispositivos muy pequeños */
+  
   @media (max-width: 480px) {
     h2 {
       font-size: 18px;
@@ -49,7 +62,7 @@ h2 {
     }
   
     table mat-header-cell, table mat-cell {
-      font-size: 12px; /* Reducción del tamaño de fuente */
+      font-size: 12px; 
     }
   
     mat-paginator {

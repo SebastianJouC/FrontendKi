@@ -1,6 +1,5 @@
 *{box-sizing: border-box}
 .cookie-banner {
-  /* Dimensiones y posición */
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -8,15 +7,11 @@
   background-color: #FFFFFF;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 
-  /* Espaciado interno y diseño */
   padding: 32px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-
-  /* Visibilidad */
-  opacity: 0;
   transition: opacity 0.3s ease-in-out;
 
   /* Clase para mostrar el banner */
@@ -147,7 +142,7 @@
   }
   
 
-  /* Responsividad */
+  
   @media (max-width: 1024px) {
     flex-direction: column;
     align-items: center;

@@ -4,13 +4,13 @@
 
 .politics-container {
   padding: 20px;
-  text-align: center; /* Centra todo el contenido de la página */
+  text-align: center; 
 }
 
 .politics-container h1 {
   margin-bottom: 20px;
-  color: #01549B; /* Color del título principal */
-  font-size: 24px; /* Tamaño del título principal */
+  color: #01549B; 
+  font-size: 24px; 
 }
 
 .politics-container div {
@@ -23,17 +23,17 @@
 
 .politics-container h2 {
   margin: 0;
-  font-size: 24px; /* Tamaño de los subtítulos */
-  color: #01549B; /* Color de los subtítulos */
+  font-size: 24px; 
+  color: #01549B; 
 }
 
 .politics-container p {
   margin: 10px 0 0;
-  font-size: 16px; /* Tamaño del texto */
-  color: #626387; /* Color del texto */
+  font-size: 16px; 
+  color: #626387; 
 }
 
-/* Imagen de cabecera */
+
 .dialog-image {
   width: 100%;
   height: 100%;
@@ -43,32 +43,32 @@
   margin: 0 auto;
 }
 
-/* Diseño responsivo */
+
 @media (max-width: 768px) {
   .politics-container {
-    padding: 10px; /* Reduce el padding en pantallas pequeñas */
+    padding: 10px; 
   }
 
   .politics-container h1 {
-    font-size: 20px; /* Reduce el tamaño del título principal */
+    font-size: 20px; 
   }
 
   .politics-container h2 {
-    font-size: 18px; /* Reduce el tamaño de los subtítulos */
+    font-size: 18px; 
   }
 
   .politics-container p {
-    font-size: 14px; /* Reduce el tamaño del texto */
+    font-size: 14px; 
   }
 
   .dialog-image {
-    max-height: 300px; /* Ajusta la altura máxima de la imagen en pantallas pequeñas */
+    max-height: 300px; 
   }
 }
 
 @media (max-width: 480px) {
   .politics-container h1 {
-    font-size: 18px; /* Ajusta aún más el tamaño en pantallas más pequeñas */
+    font-size: 18px; 
   }
 
   .politics-container h2 {

@@ -1,11 +1,15 @@
-/* Estilos generales para la tabla */
+
 mat-table {
-    width: 100%; /* La tabla ocupa todo el ancho disponible */
-    overflow-x: auto; /* Permite el desplazamiento horizontal en pantallas pequeñas */
+    width: 100%; 
+    overflow-x: auto; 
   }
-  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color:#01549B;
+  }
   table {
-    width: 100%; /* La tabla ocupa todo el ancho disponible */
+    width: 100%; 
     border-collapse: collapse;
   }
   
@@ -18,48 +22,47 @@ mat-table {
     margin-right: 8px;
   }
   
-  /* Hacer la tabla responsiva */
+  
   @media (max-width: 768px) {
     mat-header-cell, mat-cell {
-      font-size: 14px; /* Reducir el tamaño de la fuente para pantallas más pequeñas */
+      font-size: 14px; 
     }
   
     mat-header-cell {
       font-weight: bold;
     }
   
-    /* Ajuste para el título y botones */
     h2 {
       font-size: 20px;
       margin-bottom: 16px;
     }
   
     button {
-      width: 100%; /* Los botones ocupan el 100% del ancho disponible */
-      margin: 8px 0; /* Espaciado entre los botones */
+      width: 100%; 
+      margin: 8px 0; 
     }
   
     .mat-paginator {
-      font-size: 14px; /* Reducir el tamaño de la fuente del paginador */
+      font-size: 14px; 
     }
   }
   
-  /* Estilo para pantallas muy pequeñas (móviles) */
+  
   @media (max-width: 480px) {
     mat-header-cell, mat-cell {
-      font-size: 12px; /* Reducir aún más el tamaño de la fuente */
+      font-size: 12px; 
     }
   
     .mat-elevation-z8 {
-      padding: 0; /* Ajustar padding en la tabla para pantallas más pequeñas */
+      padding: 0; 
     }
   
     table {
-      font-size: 12px; /* Reducir el tamaño de la fuente de la tabla */
+      font-size: 12px; 
     }
   
     button {
-      font-size: 16px; /* Asegura que los botones no se vean muy pequeños */
+      font-size: 16px; 
     }
   }
   

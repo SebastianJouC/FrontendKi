@@ -1,11 +1,10 @@
-/* Estilo para el título del diálogo */
 h2[mat-dialog-title] {
     font-size: 20px;
     margin-bottom: 16px;
     text-align: center;
   }
   
-  /* Contenedor de los botones */
+  
   mat-dialog-actions {
     display: flex;
     justify-content: flex-end;
@@ -13,37 +12,37 @@ h2[mat-dialog-title] {
     padding: 16px;
   }
   
-  /* Botones en el diálogo */
+  
   button {
-    min-width: 120px; /* Define un ancho mínimo para los botones */
+    min-width: 120px; 
   }
   
-  /* Ajustes para pantallas pequeñas */
+ 
   @media (max-width: 768px) {
     h2[mat-dialog-title] {
       font-size: 18px;
-      margin-bottom: 12px; /* Menos espacio debajo del título en pantallas pequeñas */
+      margin-bottom: 12px; 
     }
   
     mat-dialog-actions {
-      flex-direction: column; /* Los botones se apilan verticalmente */
-      align-items: stretch; /* Los botones ocupan todo el ancho disponible */
+      flex-direction: column; 
+      align-items: stretch; 
     }
   
     button {
-      width: 100%; /* Los botones ocupan todo el ancho en pantallas más pequeñas */
-      margin-bottom: 8px; /* Espaciado entre los botones */
+      width: 100%; 
+      margin-bottom: 8px; 
     }
   }
   
-  /* Ajustes para pantallas más pequeñas (móviles) */
+ 
   @media (max-width: 480px) {
     h2[mat-dialog-title] {
       font-size: 16px;
     }
   
     button {
-      font-size: 14px; /* Reducir el tamaño de fuente de los botones en pantallas muy pequeñas */
+      font-size: 14px; 
     }
   }
   
