@@ -12,3 +12,39 @@ body.home {
 .politics-container {
   margin-bottom: 100px;
 }
+
+.page-container{
+  margin-bottom: 140px;
+}
+.cookies-list-container{
+  margin-bottom: 140px;
+}
+
+.cookie-banner{
+  z-index: 20;
+}
+@media (max-width: 820px) {
+  .politics-container {
+    margin-bottom: 250px; /* Ajusta el margen según tus necesidades */
+  }
+  .page-container{
+    margin-bottom: 400px;
+  }
+  .cookies-list-container{
+    margin-bottom: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .politics-container {
+    margin-bottom: 300px; /* Ajusta el margen según tus necesidades */
+  }
+}
+
+/* Estilo para pantallas aún más pequeñas (ejemplo: menos de 480px) */
+@media (max-width: 480px) {
+  .politics-container {
+    margin-bottom: 400px; /* Margen reducido para pantallas muy pequeñas */
+  }
+}
+

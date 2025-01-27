@@ -64,7 +64,7 @@ export class CookiesFormComponent {
       console.log('Updating cookie...');
       this.cookieService.updateFullCookie(cookieData.id, cookieData).subscribe({
         next: () => {
-          this.snackBar.open('Politic updated successfully!', 'Close', {
+          this.snackBar.open('Cookie updated successfully!', 'Close', {
             duration: 3000,
           });
           this.router.navigate(['/cookies/cookies-edit']);
