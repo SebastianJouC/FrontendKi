@@ -22,7 +22,7 @@ El frontend de este proyecto tiene el proposito de crear un banner para una pagi
 Este proyecto corre actualmente en local, por ende la clase environment se debe configurar en base al url del backend.
 ## Componentes
 El proyecto se compone de los siguientes componentes:
-- Confirmation-dialog: Su unico objetivo es ser una ventana emergenta para confirmar la eliminacion de alguna politica.
+- Confirmation-dialog: Su unico objetivo es ser una ventana emergente para confirmar la eliminacion de alguna politica.
 - Confirmation-dialog-dookies: Su objetivo es el mismo que el componente anterior pero para las cookies.
 - Cookies-banner: Componente que tiene toda la logica del banner, tiene la logica para aceptar todas las cookies, rechazar las no obligatorias, abrir el modal de configuracion de cookies y redireccionar a las politicas de cookies. Tambien tiene la logica para guardar la configuracion en el localStorage.
 - Cookies-edit-list: Componente con la logica de listar todas las cookies en una tabla y tener botones de accion para crear, editar y eliminar. Considerar que crear y editar redirecciona a un forms.
