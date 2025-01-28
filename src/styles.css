@@ -19,7 +19,11 @@ body.home {
 .cookies-list-container{
   margin-bottom: 140px;
 }
-
+@media (max-width: 1300px){
+  .cookie-banner{
+    flex-direction: column;
+  }
+}
 .cookie-banner{
   z-index: 20;
 }
