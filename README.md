@@ -8,7 +8,7 @@ Este proyecto fue generado usando Angular version 19.0.6.
 ```bash
 ng add @angular/material
 ```
-## Development server
+## Servidor de desarrollo
 
 Para iniciar el proyecto de manera local, coloca:
 
@@ -34,6 +34,7 @@ El proyecto se compone de los siguientes componentes:
 - Cookies: Definen la estructura del objeto cookies que llegara desde el backend.
 - Politics: Definen la estructura del objeto politics que llegara desde el backend.
 ## Services
+Los servicios implementados fueron utilizados en componentes a traves de señales, con el proposito de utilizar herramientas de versiones mas recientes de angular, ademas con esto se podra modificar el valor almacenado de los objetos de manera más controlada.
 - Cookies.Service: Gestiona las operaciones CRUD de cookies que vienen del backend.
 - Politic.Service: Gestiona las operaciones CRUD de politics que vienen del backend.
 ## Routes
