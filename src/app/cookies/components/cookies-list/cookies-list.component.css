@@ -37,9 +37,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f2f3f8;
+  background: #F2F3F8;
   margin-left: auto;
   box-sizing: content-box;
+  border-color: #F2F3F8;
 }
 
 .dialog-content {
