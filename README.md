@@ -8,6 +8,11 @@ Este proyecto fue generado usando Angular version 19.0.6.
 ```bash
 ng add @angular/material
 ```
+
+- Ngx-Toastr
+```bash
+npm i ngx-toastr
+```
 ## Servidor de desarrollo
 
 Para iniciar el proyecto de manera local, coloca:
