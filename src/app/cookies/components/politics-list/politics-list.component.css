@@ -18,11 +18,11 @@ mat-table {
     text-align: left;
   }
   
-  button {
+  .home {
     margin-right: 8px;
   }
-  
-  
+
+
   @media (max-width: 768px) {
     mat-header-cell, mat-cell {
       font-size: 14px; 

@@ -1,4 +1,24 @@
 /* style.css */
+body{
+  font-family: "Roboto", serif;
+}
+.error-feedback{
+  color: red;
+  font-size: 0.9rem;
+  margin: 0.3 rem !important;
+  margin-top: 0.1 rem !important;
+}
+.text-success {
+  color:  #01549B !important;
+}
+.btn-success {
+  background-color: #0096DB !important;
+  border-color: #0096DB !important;
+}
+.bg-success {
+  background-color: #a1d1e9 !important;
+}
+
 body.home {
   display: block;
   height: 100vh;
@@ -9,6 +29,16 @@ body.home {
   margin: 0;
   padding: 0;
 }
+
+.cdk-overlay-pane.mat-mdc-dialog-panel {
+  width: 620px !important;
+}
+
+.cdk-overlay-pane.mat-mdc-dialog-panel {
+  max-width: var(--mat-dialog-container-max-width, 620px) !important;
+  min-width: var(--mat-dialog-container-min-width, 280px);
+}
+
 .politics-container {
   margin-bottom: 100px;
 }
@@ -50,5 +80,13 @@ body.home {
   .politics-container {
     margin-bottom: 400px; /* Margen reducido para pantallas muy pequeñas */
   }
+  .cdk-overlay-pane.mat-mdc-dialog-panel {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .mat-mdc-dialog-actions.mat-mdc-dialog-actions-align-end, .mat-mdc-dialog-actions[align=end] {
+    justify-content: flex-end;
+  }
+  
 }
 

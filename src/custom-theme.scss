@@ -12,13 +12,36 @@ html {
   ));
 }
 
+
+
 :root {
   @include mat.slide-toggle-overrides((
-    disabled-selected-handle-opacity: 1,
-    disabled-track-opacity: 1,
+
+    selected-track-color: #FFFFFF,
+    selected-track-outline-color: #0096DB,
+    selected-handle-color: #0096DB,
+
+
+    unselected-track-color: #F0EFEF,
+    unselected-handle-color: #AAAAAA,
+
+
+    disabled-selected-track-color: #FFFFFF,
     disabled-selected-icon-opacity: 1,
-    disabled-selected-track-color: #99CCE5,
-    selected-track-color: #99CCE5,
-    
+    disabled-selected-handle-color: #99CCE5,
+    disabled-selected-handle-opacity: 1,
+    disabled-unselected-track-outline-color: #99CCE5,
+    disabled-track-opacity: 1,
+
+
+    selected-icon-size: 0,
+    unselected-icon-size: 0,
   ));
+
+  :root {
+    @include mat.dialog-overrides((
+      container-max-width: 620px,
+      container-min-width: 620px,
+    ));
+  }
 }

@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import { PoliticService } from '../../../services/politic.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { noWhitespaceValidator } from '../../../CustomValidators/no-whitespace.validator';
 
 @Component({
   selector: 'app-politics-form',
@@ -30,8 +31,8 @@ export class PoliticsFormComponent {
   constructor() {
     this.politicForm = this.fb.group({
       id: [null],
-      title: ['', [Validators.required, Validators.maxLength(100)]],
-      description: ['',[Validators.required, Validators.maxLength(5000)]]
+      title: ['', [Validators.required, Validators.maxLength(100),noWhitespaceValidator]],
+      description: ['',[Validators.required, Validators.maxLength(5000),noWhitespaceValidator]]
     });
 
     this.route.params.subscribe((params) => {

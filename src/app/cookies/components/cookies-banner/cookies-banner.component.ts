@@ -84,7 +84,6 @@ export class CookiesBannerComponent implements OnInit {
 
   openSettings(): void {
     const dialogRef = this.dialog.open(CookiesListComponent, {
-      width: '400px', // Tamaño del diálogo
     });
 
     // Guardar configuración cuando el diálogo se cierre
@@ -103,8 +102,14 @@ export class CookiesBannerComponent implements OnInit {
 
   private saveCookies(cookies: Cookies[]): void {
     // Guardar configuración en localStorage
-    localStorage.setItem('cookiesConfig', JSON.stringify(cookies));
-    // Actualizar la señal
+    const simplifiedCookies = cookies.map(cookie => ({
+      accepted: cookie.accepted
+    }));
+  
+    // Guardar configuración simplificada en localStorage
+    localStorage.setItem('cookiesConfig', JSON.stringify(simplifiedCookies));
+  
+    // Actualizar la señal con los datos completos (si es necesario para la app)
     this.cookies.set(cookies);
   }
 

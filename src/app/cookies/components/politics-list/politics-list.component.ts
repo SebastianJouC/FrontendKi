@@ -8,10 +8,11 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { Politics } from '../../interfaces/politics';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-politics-list',
-  imports: [CommonModule, MatTableModule, MatButtonModule, MatPaginatorModule ],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatPaginatorModule, MatIconModule],
   templateUrl: './politics-list.component.html',
   styleUrl: './politics-list.component.css'
 })
@@ -51,6 +52,10 @@ export class PoliticsListComponent implements OnInit{
     const path = id ? `/cookies/edit/${id}` : '/cookies/new';
     console.log(path);
     this.router.navigate([path]);
+  }
+
+  returnHome(){
+    this.router.navigate(['/']);
   }
 
   deletePolitic(id:number) {

@@ -8,10 +8,11 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { Cookies } from '../../interfaces/cookies';
 import { ConfirmationDialogCookiesComponent } from '../confirmation-dialog-cookies/confirmation-dialog-cookies.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-cookies-edit-list',
-  imports: [CommonModule, MatTableModule, MatButtonModule, MatPaginatorModule],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatPaginatorModule, MatIconModule],
   templateUrl: './cookies-edit-list.component.html',
   styleUrl: './cookies-edit-list.component.css'
 })
@@ -49,6 +50,10 @@ export class CookiesEditListComponent {
     const path = id ? `/cookies/editCookie/${id}` : '/cookies/newCookie';
     console.log(path);
     this.router.navigate([path]);
+  }
+
+  returnHome(){
+    this.router.navigate(['/']);
   }
 
   deleteCookie(id:number) {

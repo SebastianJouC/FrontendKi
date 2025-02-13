@@ -21,6 +21,13 @@ export class AppComponent implements OnInit{
   goToCookiesEdit(): void {
     this.routero.navigate(['/cookies/cookies-edit']);
   }
+  goToUsersRegistration(): void{
+    this.routero.navigate(['/user/registration']);
+  }
+  
+  goToUsersLogin(): void{
+    this.routero.navigate(['/user/login']);
+  }
   
   showCookieBanner = !localStorage.getItem('cookieConsent');
   onConsentGiven(consent: boolean) {

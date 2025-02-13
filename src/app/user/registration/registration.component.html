@@ -1,0 +1,55 @@
+<div class="mb-4">
+    <h2 class="text-success">
+        Crear Cuenta
+    </h2>
+    <div>
+        ¿Ya tienes una cuenta?
+        <a routerLink="/user/login" class="text-decoration-none fw-medium text-success d-inline-block">Ingreso</a>
+    </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="mb-3"><input class="form-control bg-body-secondary" placeholder="Email" formControlName="email" type="email">
+    <div class="error-feedback" *ngIf="hasDisplayableError('email')">
+        <div *ngIf="form.controls.email.hasError('required')">
+            Porfavor ingrese su email
+        </div>
+        <div *ngIf="form.controls.email.hasError('email')">
+            Porfavor ingrese un email valido
+        </div>
+    </div>
+</div>
+<div class="mb-3"><input class="form-control bg-body-secondary" placeholder="Password" formControlName="password" type="password">
+    <div class="error-feedback" *ngIf="hasDisplayableError('password')">
+        <ng-container [ngSwitch]="form.controls.password.errors | firstKey">
+            <div *ngSwitchCase="'required'">
+                Porfavor ingrese su contraseña
+            </div>
+            <div *ngSwitchCase="'minlength'">
+                Se requiere al menos 6 caracteres.
+            </div>
+            <div *ngSwitchCase="'uppercase'">
+                Debe contener al menos una letra mayúscula.
+            </div>
+            <div *ngSwitchCase="'lowercase'">
+                Debe contener al menos una letra minúscula.
+            </div>
+            <div *ngSwitchCase="'number'">
+                Debe contener al menos un número.
+            </div>
+            <div *ngSwitchCase="'special'">
+                Debe contener al menos un carácter especial.
+            </div>
+        </ng-container>
+    </div>
+</div>
+<div class="mb-3"><input class="form-control bg-body-secondary" placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+    <div class ="error-feedback" *ngIf="hasDisplayableError('confirmPassword') && form.controls.confirmPassword.hasError('passwordMismatch')">
+        Las contraseñas no coinciden
+    </div>
+</div>
+<div class="mt-4">
+    <button type="submit" class="btn btn-success w-100 rounded-3">
+        Register
+    </button>
+</div>
+</form>

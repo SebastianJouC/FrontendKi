@@ -1,7 +1,7 @@
-<div class="dialog">
+
   <h2 mat-dialog-title class="dialog-header">
     <img src="assets/EsvalLogo.png" alt="Logo de Esval" class="dialog-image" />
-    <button mat-icon-button class="close-button" (click)="onClose()">
+    <button mat-icon-button class="close-button" [ngStyle]="{'color': '#F2F3F8'}" (click)="onClose()">
       <mat-icon [ngStyle]="{'color':'#0096DB'}">close</mat-icon>
     </button>
   </h2>
@@ -27,4 +27,3 @@
   <mat-dialog-actions align="end">
     <button mat-button class="save-button" (click)="onSave()">Guardar configuración</button>
   </mat-dialog-actions>
-</div>

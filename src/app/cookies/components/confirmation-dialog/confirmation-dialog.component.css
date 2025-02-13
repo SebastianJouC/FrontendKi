@@ -1,48 +1,55 @@
+.dialog-container {
+  padding: 16px !important;
+  text-align: center !important;
+}
+
 h2[mat-dialog-title] {
-    font-size: 20px;
-    margin-bottom: 16px;
-    text-align: center;
+  font-size: 20px !important;
+  margin-bottom: 16px !important;
+  text-align: center !important;
+}
+
+.button-container {
+  display: flex !important;
+  justify-content: center !important; /* Centra los botones */
+  gap: 8px !important; /* Espacio entre los botones */
+  width: 100% !important;
+}
+
+button {
+  min-width: 120px !important;
+  display: inline-flex !important; /* Cambiado a inline-flex para que se ajusten correctamente */
+  justify-content: center !important; /* Asegura que el contenido del botón se centre */
+}
+
+@media (max-width: 768px) {
+  .dialog-container {
+      padding: 12px !important;
   }
-  
-  
-  mat-dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    padding: 16px;
+
+  h2[mat-dialog-title] {
+      font-size: 18px !important;
+      margin-bottom: 12px !important;
   }
-  
-  
+
+  .button-container {
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important; /* Centra los botones verticalmente */
+  }
+
   button {
-    min-width: 120px; 
+      width: 100% !important; /* Los botones ocupan el ancho completo */
+      margin-bottom: 8px !important; /* Espacio entre los botones */
   }
-  
- 
-  @media (max-width: 768px) {
-    h2[mat-dialog-title] {
-      font-size: 18px;
-      margin-bottom: 12px; 
-    }
-  
-    mat-dialog-actions {
-      flex-direction: column; 
-      align-items: stretch; 
-    }
-  
-    button {
-      width: 100%; 
-      margin-bottom: 8px; 
-    }
+}
+
+@media (max-width: 480px) {
+  h2[mat-dialog-title] {
+      font-size: 16px !important;
   }
-  
- 
-  @media (max-width: 480px) {
-    h2[mat-dialog-title] {
-      font-size: 16px;
-    }
-  
-    button {
-      font-size: 14px; 
-    }
+
+  button {
+      font-size: 14px !important;
   }
-  
+}

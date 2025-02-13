@@ -11,6 +11,7 @@ import { CookieService } from '../../../services/cookie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { noWhitespaceValidator } from '../../../CustomValidators/no-whitespace.validator';
 
 @Component({
   selector: 'app-cookies-form',
@@ -31,10 +32,10 @@ export class CookiesFormComponent {
   constructor() {
     this.cookieForm = this.fb.group({
       id: [null],
-      name: ['', [Validators.required, Validators.maxLength(100)]],
-      description: ['',[Validators.required, Validators.maxLength(1000)]],
-      accepted: [''],
-      required: ['']
+      name: ['', [Validators.required, Validators.maxLength(100),noWhitespaceValidator]],
+      description: ['',[Validators.required, Validators.maxLength(1000),noWhitespaceValidator]],
+      accepted: [false],
+      required: [false]
     });
 
     this.route.params.subscribe((params) => {

@@ -1,5 +1,7 @@
-<h2 mat-dialog-title>¿Estas seguro de querer borrar esta politica?</h2>
-<mat-dialog-actions align="end">
-  <button mat-raised-button (click)="onCancel()">Cancel</button>
-  <button mat-flat-button color="warn" (click)="onConfirm()">Delete</button>
-</mat-dialog-actions>
+<div class="dialog-container">
+  <h2 mat-dialog-title>¿Seguro que deseas eliminar esta politica?</h2>
+  <div class="button-container">
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+    <button mat-flat-button color="warn" (click)="onConfirm()">Borrar</button>
+  </div>
+</div>

@@ -29,7 +29,7 @@ export class CookieService {
   }
 
   updateFullCookie(id: number, cookies: Partial<Cookies>): Observable<Cookies> {
-    return this.http.put<Cookies>(`${this.apiUrl}/${id}`, cookies);
+    return this.http.put<Cookies>(`${this.apiUrl}/update-cookie-full/${id}`, cookies);
   }
   
 
