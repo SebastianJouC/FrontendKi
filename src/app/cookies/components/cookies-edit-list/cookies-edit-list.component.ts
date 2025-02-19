@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Cookies } from '../../interfaces/cookies';
 import { ConfirmationDialogCookiesComponent } from '../confirmation-dialog-cookies/confirmation-dialog-cookies.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cookies-edit-list',
@@ -20,9 +21,10 @@ export class CookiesEditListComponent {
   private dialog = inject(MatDialog);
   private router = inject(Router);
   private cookiesService = inject(CookieService);
+  private toastr = inject(ToastrService);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   cookies: WritableSignal<Cookies[]> = signal<Cookies[]>([]);
-  displayedColumns: string[] = ["id", "name", "description", "accepted","required", "actions"];
+  displayedColumns: string[] = ["id", "name", "description","required", "actions"];
   dataSource = new MatTableDataSource<Cookies>([]);
   ngOnInit(): void {
     this.loadCookies();
@@ -47,13 +49,9 @@ export class CookiesEditListComponent {
   }
 
   navigateToForm(id?:number) {
-    const path = id ? `/cookies/editCookie/${id}` : '/cookies/newCookie';
+    const path = id ? `/layout/editCookie/${id}` : '/layout/newCookie';
     console.log(path);
     this.router.navigate([path]);
-  }
-
-  returnHome(){
-    this.router.navigate(['/']);
   }
 
   deleteCookie(id:number) {
@@ -62,6 +60,7 @@ export class CookiesEditListComponent {
       if(result) {
         this.cookiesService.deleteCookie(id).subscribe(()=> {
           const updatedCookies = this.cookies().filter((cookie)=>cookie.id !== id);
+          this.toastr.success('Cookie deleted successfully!');
           this.cookies.set(updatedCookies);
           this.updateTableData();
         })

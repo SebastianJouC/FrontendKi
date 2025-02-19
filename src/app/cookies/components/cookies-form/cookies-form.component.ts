@@ -34,7 +34,6 @@ export class CookiesFormComponent {
       id: [null],
       name: ['', [Validators.required, Validators.maxLength(100),noWhitespaceValidator]],
       description: ['',[Validators.required, Validators.maxLength(1000),noWhitespaceValidator]],
-      accepted: [false],
       required: [false]
     });
 
@@ -68,7 +67,7 @@ export class CookiesFormComponent {
           this.snackBar.open('Cookie updated successfully!', 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['/cookies/cookies-edit']);
+          this.router.navigate(['/layout/cookies-edit']);
         },
         error: (err) => console.error(err),
       });
@@ -79,7 +78,7 @@ export class CookiesFormComponent {
            this.snackBar.open('Cookie added successfully!', 'Close', {
              duration: 3000,
            });
-           this.router.navigate(['/cookies/cookies-edit']);
+           this.router.navigate(['/layout/cookies-edit']);
          },
          error: (err) => console.error(err),
        });

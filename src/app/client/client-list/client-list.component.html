@@ -1,0 +1,29 @@
+<div class="container mt-1" style="margin-bottom: 240px;">
+    <h2>Lista de Usuarios</h2>
+    <div class="mb-3">
+      <label for="searchEmail" class="form-label">Buscar por Email:</label>
+      <input 
+        id="searchEmail" 
+        class="form-control" 
+        type="text" 
+        [(ngModel)]="searchEmail" 
+        (ngModelChange)="filterUsers()"
+        placeholder="Escribe el email..."
+      />
+    </div>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="p-1">Email</th>
+          <th class="p-1">Última Conexión</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers">
+          <td class="py-1">{{ user.email }}</td>
+          <td class="py-1">{{ user.ultimaConexion | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

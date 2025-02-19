@@ -24,9 +24,4 @@ export class DashboardComponent implements OnInit{
     })
 
   }
-
-  onLogout(){
-    this.authService.deleteToken();
-    this.router.navigateByUrl('');
-  }
 }

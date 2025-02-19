@@ -56,6 +56,7 @@ export class RegistrationComponent implements OnInit {
             this.form.reset();
             this.isSubmitted = false;
             this.toaster.success('Usuario creado exitosamente');
+            this.router.navigateByUrl('/user/login');
           }
         },
         error: err => {
@@ -67,7 +68,7 @@ export class RegistrationComponent implements OnInit {
                   break;
 
                 default:
-                  this.toaster.error('Contacte al desarrollador', 'Registro Fallido')
+                  this.toaster.error('Email ya registrado', 'Registro Fallido')
                   console.log(x);
                   break;
               }

@@ -16,7 +16,7 @@
     <div *ngFor="let cookie of cookies()" class="cookie-item">
       <div class="cookie-header">
         <h3>{{ cookie.name }} <span *ngIf="cookie.required">(siempre activas)</span></h3>
-        <mat-slide-toggle [(ngModel)]="cookie.accepted" [disabled]="cookie.required">
+        <mat-slide-toggle [checked]="cookie.required" [disabled]="cookie.required">
         </mat-slide-toggle>
       </div>
       <p class="cookie-description">{{ cookie.description }}</p>

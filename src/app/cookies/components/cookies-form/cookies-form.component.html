@@ -3,10 +3,10 @@
   <form [formGroup]="cookieForm" (ngSubmit)="onSubmit()">
 
     <mat-form-field class="full-width">
-      <mat-label>Cookie Name</mat-label>
+      <mat-label>Nombre de la Cookie</mat-label>
       <input matInput formControlName="name" required />
       <mat-error *ngIf="cookieForm.get('name')?.invalid">
-        Name is required (max 100 characters).
+        Nombre requerido (maximo 100 caracteres).
       </mat-error>
       <mat-error *ngIf="cookieForm.get('name')?.hasError('whitespace')">
         Name cannot be empty or contain only spaces.
@@ -14,24 +14,19 @@
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <mat-label>Description</mat-label>
+      <mat-label>Descripcion</mat-label>
       <input matInput formControlName="description" required />
       <mat-error *ngIf="cookieForm.get('description')?.invalid">
-        Description is required (max 1000 characters).
+        Descripcion es requerida (maximo 1000 caracteres).
       </mat-error>
       <mat-error *ngIf="cookieForm.get('description')?.hasError('whitespace')">
-        Description cannot be empty or contain only spaces.
+        Descripcion no puede estar vacia o contener solo espacios.
       </mat-error>
     </mat-form-field>
 
     <div class="checkbox-container">
       <div class="checkbox-item">
-        <mat-label>Accepted?</mat-label>
-        <mat-checkbox formControlName="accepted"></mat-checkbox>
-      </div>
-
-      <div class="checkbox-item">
-        <mat-label>Required?</mat-label>
+        <mat-label>Requerido?</mat-label>
         <mat-checkbox formControlName="required"></mat-checkbox>
       </div>
     </div>
@@ -40,8 +35,8 @@
       <button mat-flat-button color="warn" type="submit" [disabled]="cookieForm.invalid">
         {{ isEditMode ? 'Update Changes' : 'Add Cookie' }}
       </button>
-      <button mat-raised-button color="warn" (click)="router.navigate(['/cookies/cookies-edit'])" type="button">
-        Cancel
+      <button mat-raised-button color="warn" (click)="router.navigate(['/layout/cookies-edit'])" type="button">
+        Cancelar
       </button>
     </div>
   </form>

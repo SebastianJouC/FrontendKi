@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../Environments/environment';
+import { environment } from '../../environments/environment.prod';
 import { Cookies } from '../cookies/interfaces/cookies';
 import { Observable } from 'rxjs';
 
@@ -24,9 +24,14 @@ export class CookieService {
     return this.http.post<Cookies>(this.apiUrl, cookie);
   }
 
-  updateCookie(id: number, updateDto: { accepted: boolean }): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, updateDto);
+  interseccionCookiesUsuario(preferenciasCookies: { userID: number; cookieId: number[] }): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/InterseccionCookieUsuario`, preferenciasCookies);
   }
+  
+  getUserCookieConfiguration(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/UserConfiguration`);
+  }
+  
 
   updateFullCookie(id: number, cookies: Partial<Cookies>): Observable<Cookies> {
     return this.http.put<Cookies>(`${this.apiUrl}/update-cookie-full/${id}`, cookies);

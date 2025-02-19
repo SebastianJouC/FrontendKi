@@ -9,6 +9,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { Cookies } from '../../interfaces/cookies';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-cookies-list',
@@ -23,6 +24,8 @@ export class CookiesListComponent implements OnInit {
   private dialog = inject(MatDialog);
   private router = inject(Router);
   private cookieService = inject(CookieService);
+  private authService = inject(AuthService);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   cookies: WritableSignal<Cookies[]> = signal<Cookies[]>([]);
@@ -56,22 +59,36 @@ export class CookiesListComponent implements OnInit {
   }
 
   onSave(): void {
+    const claims = this.authService.getClaims();
+    const userID = claims?.userID;
     const currentCookies = this.cookies();
+    console.log('Claims obtenidos:', claims); // Verificar si userId está presente
+
+    if (!claims || !claims.userID) {
+      console.warn('No se pudo obtener el userId del token.');
+      return;
+    }
+    
     if (!currentCookies || currentCookies.length === 0) {
       console.warn('No hay cookies válidas para guardar.');
       return;
     }
   
-    currentCookies.forEach(cookie => {
-      this.cookieService.updateCookie(cookie.id, { accepted: cookie.accepted }).subscribe({
-        next: () => console.log(`Cookie con id ${cookie.id} actualizada correctamente.`),
-        error: (err) => console.error(`Error al actualizar la cookie con id ${cookie.id}:`, err)
-      });
-    });
+    // Simulación de userId, deberías obtenerlo de donde corresponda // O reemplázalo con el userId real del usuario autenticado
   
-    localStorage.setItem('cookiesConfig', JSON.stringify(currentCookies));
-    console.log('Configuración de cookies guardada en localStorage:', currentCookies);
-    this.dialogRef.close(currentCookies);
+    const preferenciasCookies = {
+      userID,
+      cookieId: currentCookies.map(cookie => cookie.id) // Extraemos solo los IDs
+    };
+    console.log('Enviando datos a la API:', preferenciasCookies);
+  
+    this.cookieService.interseccionCookiesUsuario(preferenciasCookies).subscribe({
+      next: () => {
+        console.log('Cookies actualizadas correctamente en el backend.');
+        this.dialogRef.close(currentCookies);
+      },
+      error: (err) => console.error('Error al actualizar las cookies:', err)
+    });
   }
   
   onClose(): void {

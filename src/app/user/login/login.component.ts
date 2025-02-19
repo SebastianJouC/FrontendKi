@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
       this.authService.signIn(this.form.value).subscribe({
         next: (res: any) => {
           this.authService.saveToken(res.token);
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/layout/dashboard');
         },
         error: err=>{
           if(err.status === 400)

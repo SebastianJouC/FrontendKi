@@ -3,24 +3,24 @@
     <form [formGroup] = "politicForm" (ngSubmit)="onSubmit()">
   
       <mat-form-field class="full-width">
-        <mat-label>Politic Title</mat-label>
+        <mat-label>Titulo de Politica</mat-label>
         <input matInput formControlName="title" required />
         <mat-error *ngIf="politicForm.get('title')?.invalid">
-          Title is required (max 25 characters).
+          Titulo es requerido (maximo 100 caracteres).
         </mat-error>
         <mat-error *ngIf="politicForm.get('title')?.hasError('whitespace')">
-          Title cannot be empty or contain only spaces.
+          Titulo no puede estar vacio o solo contener espacios.
         </mat-error>
       </mat-form-field>
   
       <mat-form-field class="full-width">
-        <mat-label>Description</mat-label>
+        <mat-label>Descripcion</mat-label>
         <input matInput formControlName="description" required />
         <mat-error *ngIf="politicForm.get('description')?.invalid">
-            Description is required (max 500 characters).
+          Descripcion es requerida (maximo 1000 caracteres).
         </mat-error>
         <mat-error *ngIf="politicForm.get('description')?.hasError('whitespace')">
-          Description cannot be empty or contain only spaces.
+          Descripcion no puede estar vacia o contener solo espacios.
         </mat-error>
       </mat-form-field>
       
@@ -28,8 +28,8 @@
         <button  mat-flat-button color="warn" type="submit" [disabled]="politicForm.invalid">
           {{ isEditMode ? 'Update Changes' : 'Add Politic' }}
         </button>
-        <button mat-raised-button color="warn" (click)="router.navigate(['/cookies/politics-edit'])" type="button">
-          Cancel
+        <button mat-raised-button color="warn" (click)="router.navigate(['/layout/politics-edit'])" type="button">
+          Cancelar
         </button>
       </div>
     </form>

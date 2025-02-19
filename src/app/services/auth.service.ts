@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../Environments/environment';
+import { environment } from '../../environments/environment.prod';
 import { TOKEN_KEY } from '../guarded/constants';
 
 @Injectable({
@@ -33,5 +33,9 @@ export class AuthService {
 
   deleteToken(){
     localStorage.removeItem(TOKEN_KEY);
+  }
+
+  getClaims(){
+    return JSON.parse(window.atob(this.getToken()!.split('.')[1]));
   }
 }

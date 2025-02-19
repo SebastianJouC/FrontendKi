@@ -1,0 +1,19 @@
+<div class="container mt-1" style="margin-bottom: 240px;">
+    <h2>Cookies Configuradas por usuario</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="p-1">Id de Usuario</th>
+          <th class="p-1">Id de Cookie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td class="py-1">{{ user.userId }}</td>
+          <td class="py-1">{{ user.cookieId }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  

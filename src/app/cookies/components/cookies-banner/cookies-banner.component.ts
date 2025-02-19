@@ -4,6 +4,7 @@ import { CookiesListComponent } from '../cookies-list/cookies-list.component';
 import { Cookies } from '../../interfaces/cookies';
 import { CookieService } from '../../../services/cookie.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-cookies-banner',
@@ -16,101 +17,114 @@ export class CookiesBannerComponent implements OnInit {
   private dialog = inject(MatDialog);
   private router = inject(Router);
   private cookieService = inject(CookieService);
+  private authService = inject(AuthService);
+
+
   cookies: WritableSignal<Cookies[]> = signal<Cookies[]>([]);
+
   ngOnInit() {
-    const cookiesConfig = localStorage.getItem('cookiesConfig');
-    if (cookiesConfig) {
-      this.cookies.set(JSON.parse(cookiesConfig)); // Inicializa las cookies desde localStorage
-    } else {
-      this.cookieService.getCookie().subscribe({
-        next: (cookies) => {
-          this.cookies.set(cookies); // Inicializa las cookies desde la base de datos
-          setTimeout(() => {
-            this.isVisible = true; // Mostrar el banner solo si no hay configuración previa
-          }, 500);
-        },
-        error: (err) => console.error('Error al cargar las cookies desde el servicio:', err),
-      });
+    const claims = this.authService.getClaims();
+    if (!claims || !claims.userID) {
+      console.warn('No se pudo obtener el userID del token.');
+      return;
     }
+
+    this.cookieService.getUserCookieConfiguration().subscribe({
+      next: (config) => {
+        if (config && config.length > 0) {
+          this.isVisible = false;
+        } else {
+          this.loadCookies();
+        }
+      },
+      error: (err) => {
+        console.error('Error al obtener la configuración de cookies:', err);
+        this.loadCookies();
+      }
+    });
+  }
+
+  loadCookies(): void {
+    this.cookieService.getCookie().subscribe({
+      next: (cookies) => {
+        if (cookies && Array.isArray(cookies)) {
+          this.cookies.set(cookies);
+          this.isVisible = true;
+        } else {
+          console.warn('No se obtuvieron cookies válidas desde el servicio.');
+        }
+      },
+      error: (err) => console.error('Error al cargar las cookies desde el servicio:', err)
+    });
   }
 
   acceptAll(): void {
-    const updatedCookies = this.cookies().map(cookie => ({
-      ...cookie,
-      accepted: true, // Aceptar todas las cookies
-    }));
-  
-    // Guardar en localStorage
-    this.saveCookies(updatedCookies);
-  
-    // Actualizar las cookies en la base de datos
-    updatedCookies.forEach(cookie => {
-      this.cookieService.updateCookie(cookie.id, { accepted: true }).subscribe({
-        next: () => console.log(`Cookie con id ${cookie.id} actualizada correctamente.`),
-        error: (err) => console.error(`Error al actualizar la cookie con id ${cookie.id}:`, err),
-      });
-    });
-  
-    // Actualizar la señal
-    this.cookies.set(updatedCookies);
-  
-    console.log('Se aceptaron todas las cookies.');
-    this.hideBanner();
+    this.updateCookies(true);
   }
-  
-
 
   rejectNonNecessary(): void {
+    this.updateCookies(false);
+  }
+
+  private updateCookies(acceptAll: boolean): void {
+    const claims = this.authService.getClaims();
+    const userID = claims?.userID;
+
+    if (!userID) {
+      console.warn('No se pudo obtener el userID del token.');
+      return;
+    }
+
     const updatedCookies = this.cookies().map(cookie => ({
       ...cookie,
-      accepted: cookie.required, // Aceptar solo las obligatorias
+      accepted: acceptAll ? true : cookie.required,
     }));
-  
-    // Guardar en localStorage
-    this.saveCookies(updatedCookies);
-  
-    // Actualizar las cookies en la base de datos
-    updatedCookies.forEach(cookie => {
-      this.cookieService.updateCookie(cookie.id, { accepted: cookie.required }).subscribe({
-        next: () => console.log(`Cookie con id ${cookie.id} actualizada correctamente.`),
-        error: (err) => console.error(`Error al actualizar la cookie con id ${cookie.id}:`, err),
-      });
+
+    const preferenciasCookies = {
+      userID,
+      cookieId: updatedCookies.map(cookie => cookie.id),
+    };
+
+    console.log('Enviando configuración a la API:', preferenciasCookies);
+
+    this.cookieService.interseccionCookiesUsuario(preferenciasCookies).subscribe({
+      next: () => {
+        console.log('Cookies actualizadas correctamente en el backend.');
+        this.hideBanner();
+      },
+      error: (err) => console.error('Error al actualizar las cookies:', err),
     });
-  
-    console.log('Se rechazaron las cookies no esenciales.');
-    this.hideBanner();
   }
-  
 
   openSettings(): void {
-    const dialogRef = this.dialog.open(CookiesListComponent, {
-    });
+    const dialogRef = this.dialog.open(CookiesListComponent, {});
 
-    // Guardar configuración cuando el diálogo se cierre
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.saveCookies(result);
-        console.log('Configuración de cookies guardada desde el diálogo.');
-        this.hideBanner();
+        const claims = this.authService.getClaims();
+        const userID = claims?.userID;
+        if (!userID) {
+          console.warn('No se pudo obtener el userID del token.');
+          return;
+        }
+        const preferenciasCookies = {
+          userID,
+          cookieId: result.map((cookie: Cookies) => cookie.id)
+        };
+
+        this.cookieService.interseccionCookiesUsuario(preferenciasCookies).subscribe({
+          next: () => {
+            console.log('Configuración de cookies guardada desde el diálogo.');
+            this.hideBanner();
+          },
+          error: (err) => console.error('Error al actualizar la configuración de cookies:', err),
+        });
       }
     });
   }
 
   private hideBanner(): void {
-    this.isVisible = false; // Ocultar el banner
-  }
-
-  private saveCookies(cookies: Cookies[]): void {
-    // Guardar configuración en localStorage
-    const simplifiedCookies = cookies.map(cookie => ({
-      accepted: cookie.accepted
-    }));
-  
-    // Guardar configuración simplificada en localStorage
-    localStorage.setItem('cookiesConfig', JSON.stringify(simplifiedCookies));
-  
-    // Actualizar la señal con los datos completos (si es necesario para la app)
-    this.cookies.set(cookies);
+    this.isVisible = false;
   }
 
   goToCookiesPolitics(): void {

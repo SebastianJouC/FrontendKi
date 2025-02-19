@@ -63,7 +63,7 @@ export class PoliticsFormComponent {
           this.snackBar.open('Politic updated successfully!', 'Close', {
             duration: 3000,
           });
-          this.router.navigate(['/cookies/politics-edit']);
+          this.router.navigate(['/layout/politics-edit']);
         },
         error: (err) => console.error(err),
       });
@@ -74,7 +74,7 @@ export class PoliticsFormComponent {
            this.snackBar.open('Politic added successfully!', 'Close', {
              duration: 3000,
            });
-           this.router.navigate(['/cookies/politics-edit']);
+           this.router.navigate(['/layout/politics-edit']);
          },
          error: (err) => console.error(err),
        });

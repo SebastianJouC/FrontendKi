@@ -19,6 +19,29 @@ body{
   background-color: #a1d1e9 !important;
 }
 
+#main {
+  margin-left: 240px;
+}
+
+#sidebar{
+  width: 240px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#sidebar li.nav-item a{
+  color: #0096DB;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.7rem 1rem;
+}
+
+#sidebar li.nav-item a:hover{
+  background-color: #007fff17;
+  border-radius: 0.5rem;
+}
+
 body.home {
   display: block;
   height: 100vh;

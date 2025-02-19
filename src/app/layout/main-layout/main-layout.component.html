@@ -1,0 +1,44 @@
+<button class="btn btn-success d-md-none m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+    ☰ Menú
+</button>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary offcanvas-md offcanvas-start vh-100">
+            <div class="container-fluid text-center">
+                <a class="navbar-brand h1 fw-bold text-success mb-3 fs-1 d-block mx-auto" routerLink="/layout/dashboard">
+                    ESVAL
+                </a>
+            </div>
+            <ul class="nav flex-column w-100 px-3">
+                <li class="nav-item" [appOcultarBotones]="claimReq.adminOnly">
+                    <a class="nav-link" routerLink="/layout/AdminOnly">Configuración de usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/layout/Clients">Lista de Usuarios</a>
+                </li>
+                <li class="nav-item" [appOcultarBotones]="claimReq.adminOnly">
+                    <a class="nav-link" routerLink="/layout/politics-edit">Configuración de políticas</a>
+                </li>
+                <li class="nav-item" [appOcultarBotones]="claimReq.adminOnly">
+                    <a class="nav-link" routerLink="/layout/cookies-edit">Configuración de cookies</a>
+                </li>
+                <li class="nav-item" [appOcultarBotones]="claimReq.adminOnly">
+                    <a class="nav-link" routerLink="/layout/cookies-user">Cookies por usuario</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="main" class="col-md-10 col-lg-20 offset-md-3 offset-lg-2 position-relative">
+            <nav class="navbar bg-body-tertiary position-relative w-100">
+                <div class="container-fluid px-5 py-1 d-flex justify-content-end">
+                    <button class="btn btn-dark" (click)="onLogout()">Cerrar Sesión</button>
+                </div>
+            </nav>
+            <div class="mt-5 p-5">
+                <app-cookies-banner *ngIf="showBanner"></app-cookies-banner>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

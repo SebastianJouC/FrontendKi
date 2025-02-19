@@ -49,13 +49,9 @@ export class PoliticsListComponent implements OnInit{
   }
 
   navigateToForm(id?:number) {
-    const path = id ? `/cookies/edit/${id}` : '/cookies/new';
+    const path = id ? `/layout/edit/${id}` : '/layout/new';
     console.log(path);
     this.router.navigate([path]);
-  }
-
-  returnHome(){
-    this.router.navigate(['/']);
   }
 
   deletePolitic(id:number) {

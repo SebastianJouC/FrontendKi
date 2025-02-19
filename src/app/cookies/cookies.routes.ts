@@ -8,27 +8,6 @@ import { CookiesFormComponent } from './components/cookies-form/cookies-form.com
 
 export const COOKIES_ROUTES: Routes = [
     {
-        path: '', component: CookiesBannerComponent
-    },
-    {
         path: 'cookies-politics', component: CookiesPoliticsComponent
     },
-    {
-        path: 'politics-edit', component: PoliticsListComponent
-    },
-    {
-        path: 'new', component: PoliticsFormComponent
-    },
-    {
-        path: 'edit/:id', component: PoliticsFormComponent
-    },
-    {
-        path: 'cookies-edit', component: CookiesEditListComponent
-    },
-    {
-        path: 'newCookie', component: CookiesFormComponent
-    },
-    {
-        path: 'editCookie/:id', component: CookiesFormComponent
-    }
 ]
