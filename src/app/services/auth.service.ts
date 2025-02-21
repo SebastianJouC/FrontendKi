@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 import { TOKEN_KEY } from '../guarded/constants';
 
 @Injectable({
@@ -37,5 +37,13 @@ export class AuthService {
 
   getClaims(){
     return JSON.parse(window.atob(this.getToken()!.split('.')[1]));
+  }
+
+  isAuthenticated(): boolean {
+    const token = this.getToken();
+    if (!token) {
+      return false;
+    }
+    return true;
   }
 }
