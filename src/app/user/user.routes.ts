@@ -16,10 +16,12 @@ import { PoliticsFormComponent } from '../cookies/components/politics-form/polit
 import { CookiesEditListComponent } from '../cookies/components/cookies-edit-list/cookies-edit-list.component'
 import { CookiesFormComponent } from '../cookies/components/cookies-form/cookies-form.component'
 import { UserCookiesManagerComponent } from '../adminOnly/user-cookies-manager/user-cookies-manager.component'
+import { noAuthGuardGuard } from '../guarded/no-auth-guard.guard'
 
 export const USER_ROUTES: Routes = [
     {
         path: 'user', component: UserComponent,
+        canActivate: [noAuthGuardGuard],
         children: [
         {
             path: '', redirectTo: 'login', pathMatch: 'full'
