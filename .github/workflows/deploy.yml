@@ -62,6 +62,6 @@ jobs:
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'ProyectoFrontKi'
+          app-name: 'FrontendKI'
           slot-name: 'Production'
           package: dist/frontend
