@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - FrontendKi
+name: Build and deploy Node.js app to Azure Web App - frontendKI
 
 on:
   push:
@@ -54,15 +54,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_F49C1CE588074666AADF9D5BA794BFEA }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_06D7CDCC6437477AA48FB672ACC7CD70 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_023B78BF21234F2A8B9695157A29E516 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BAC1DBD37DC741EC85866D6F18402B8F }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FE94C7E560BB49F9A04372E46C1D95B1 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AAECFBA0472C48C8AF2138D49134D7A6 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'FrontendKi'
+          app-name: 'frontendKI'
           slot-name: 'Production'
           package: .
           
