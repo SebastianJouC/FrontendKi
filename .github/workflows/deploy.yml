@@ -29,7 +29,7 @@ env:
  
 permissions:
   contents: read
- 
+
 jobs:
   build:
     runs-on: windows-latest
@@ -71,9 +71,9 @@ jobs:
     - name: Login to Azure
       uses: azure/login@v2
       with:
-        client-id: ${{ secrets.__clientidsecretname__ }}
-        tenant-id: ${{ secrets.__tenantidsecretname__ }}
-        subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
+        client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BAC1DBD37DC741EC85866D6F18402B8F }}
+        tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_FE94C7E560BB49F9A04372E46C1D95B1 }}
+        subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AAECFBA0472C48C8AF2138D49134D7A6 }}
  
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp
